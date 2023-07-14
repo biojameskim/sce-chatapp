@@ -1,0 +1,13 @@
+langchain
+xmltodict
+requests
+lxml
+nest_asyncio
+bs4
+streamlit
+faiss-cpu
+openai
+tiktoken
+
+# progress checker for SiteMap loader
+tqdm
