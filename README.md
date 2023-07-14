@@ -12,5 +12,8 @@ pip install -r requirements.txt
 streamlit run chatbot(-gpt35).py
 ```
 
+## Usage
+- Fill in all the "TODO" sections in the code (API KEYS, etc.)
+
 ## Notes
 - Currently only scraped on https://www.sce.com/residential/rebates-savings/summer-discount-plan per rate limit
