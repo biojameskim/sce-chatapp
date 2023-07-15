@@ -17,3 +17,4 @@ streamlit run chatbot(-gpt35).py
 
 ## Notes
 - Currently only scraped on https://www.sce.com/residential/rebates-savings/summer-discount-plan per rate limit
+- Good visual of how Vector Search and VectorDBs are working: https://medium.com/@ajosegun_/transform-websites-into-powerful-chatbots-with-langchain-faiss-and-azure-openai-edb71e9454f1
