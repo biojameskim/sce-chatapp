@@ -10,11 +10,14 @@ import openai
 import streamlit as st
 
 # Environment variables for OpenAI API
+from dotenv import load_dotenv
+load_dotenv()
+
 import os
-os.environ['OPENAI_API_TYPE'] = 'TODO'
-os.environ['OPENAI_API_VERSION'] = 'TODO' 
-os.environ['OPENAI_API_BASE'] = 'TODO'
-os.environ['OPENAI_API_KEY'] = 'TODO'
+os.environ['OPENAI_API_TYPE'] = os.environ.get('OPENAI_API_TYPE')
+os.environ['OPENAI_API_VERSION'] = os.environ.get('OPENAI_API_VERSION')
+os.environ['OPENAI_API_BASE'] = os.environ.get('OPENAI_API_BASE')
+os.environ['OPENAI_API_KEY'] = os.environ.get('OPENAI_API_KEY')
 
 # Langchain imports
 from langchain.vectorstores import FAISS
@@ -46,7 +49,7 @@ def create_vectordb():
   """
   docs_split = split_docs()
 
-  embeddings = OpenAIEmbeddings(deployment="TODO", model='TODO', chunk_size=1)
+  embeddings = OpenAIEmbeddings(deployment="ada", model='text-embedding-ada-002', chunk_size=1)
   # Iterates through all chunk stored in `docs_split` and embeds each one as a vector using `embeddings`
   vectordb = FAISS.from_documents(docs_split, embeddings)
 
@@ -70,8 +73,8 @@ vectordb = load_vectordb()
 
 # Define the LLM model
 llm = AzureOpenAI(
-    deployment_name='TODO',
-    model_name='TODO',
+    deployment_name='davinci',
+    model_name='text-davinci-003',
     temperature=0
   )
 
@@ -87,7 +90,7 @@ def retrieval_answer(query):
     return answer, source
 
 # Set up the Streamlit app
-st.title("Sparky ⚡️ ", anchor=False)
+st.title("Sparky", anchor=False)
 st.markdown("""### *SCE's :red[GPT-powered] chatbot*""")
 
 # Initialize chat history
